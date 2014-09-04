@@ -1,0 +1,206 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{extramarks}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{courier}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage{enumerate}
+
+\usetikzlibrary{automata,positioning}
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName}
+\chead{\hmwkClass\ (\hmwkClassInstructor\ \hmwkClassTime): \hmwkTitle}
+\rhead{\firstxmark}
+\lfoot{\lastxmark}
+\cfoot{}
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+
+\setlength\parindent{0pt}
+
+\newcommand{\enterProblemHeader}[1]{
+\nobreak\extramarks{#1}{#1 continued on next page\ldots}\nobreak
+\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
+}
+
+\newcommand{\exitProblemHeader}[1]{
+\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
+\nobreak\extramarks{#1}{}\nobreak
+}
+
+\setcounter{secnumdepth}{0}
+\newcounter{homeworkProblemCounter}
+
+\newcommand{\homeworkProblemName}{}
+\newenvironment{homeworkProblem}[1][Problem \arabic{homeworkProblemCounter}]{
+\stepcounter{homeworkProblemCounter}
+\renewcommand{\homeworkProblemName}{#1}
+\section{\homeworkProblemName}
+\enterProblemHeader{\homeworkProblemName}
+}{
+\exitProblemHeader{\homeworkProblemName}
+}
+
+\newcommand{\problemAnswer}[1]{
+\noindent\framebox[\columnwidth][c]{\begin{minipage}{0.98\columnwidth}#1\end{minipage}}
+}
+
+\newcommand{\homeworkSectionName}{}
+\newenvironment{homeworkSection}[1]{
+\renewcommand{\homeworkSectionName}{#1}
+\subsection{\homeworkSectionName}
+\enterProblemHeader{\homeworkProblemName\ [\homeworkSectionName]}
+}{
+\enterProblemHeader{\homeworkProblemName}
+}
+
+\newcommand{\hmwkTitle}{Homework\ \#1}
+\newcommand{\hmwkDueDate}{September\ 5,\ 2014 at 09:00am}
+\newcommand{\hmwkClass}{CS311}
+\newcommand{\hmwkClassTime}{09:00pm}
+\newcommand{\hmwkClassInstructor}{Professor Lutz}
+\newcommand{\hmwkAuthorName}{Kien Nguyen}
+
+\title{
+\vspace{2in}
+\textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+\normalsize\vspace{0.1in}\small{Due\ on\ \hmwkDueDate}\\
+\vspace{0.1in}\large{\textit{\hmwkClassInstructor\ \hmwkClassTime}}
+\vspace{3in}
+}
+
+\author{\textbf{\hmwkAuthorName}}
+\date{}
+
+\begin{document}
+\maketitle
+
+\pagebreak
+
+\begin{homeworkProblem}
+Prove or disapprove: If $A = {0^n1^n|n \in \mathbb{N}}$, then $A^* = A$ 
+\begin{proof}
+We'll disapprove it. \\
+Assume that $A = {0^n1^n|n \in \mathbb{N}}$, we have $0101 \in A^*$, but $0101 \notin A$. Therefore,
+$A^* \neq A$
+\end{proof}
+\end{homeworkProblem}
+
+\pagebreak
+
+\begin{homeworkProblem}
+Prove or disapprove: If $B = {x \in {0,1}^*|\#(0,x) = \#(1,x)}, then B* = B.$\\
+Note: The notation $\#(0,x)$ is used to denote the number of $0's$ in $x$. Likewise, $\#(1,x)$ is used
+to denote the number of $1's$ in $x$.
+\begin{proof}
+\begin{enumerate}[(1)]
+\item Prove $B* \in B$. \\
+For every $y \in B^*$, we have $y$ is a combination of some elements in $B$. Therefore we can write: \\
+\[ y = x_1x_2 \dots x_n, \, where \; n \in \mathbb{N}, \, and \, x_i \in B, i=1 \dots n \]
+then,\\
+\[ \#(0,y) = \#(0,x_1) + \#(0,x_2) + \dots + \#(0,x_n) \] and
+\[ \#(1,y) = \#(1,x_1) + \#(0,x_2) + \dots + \#(1,x_n) \]
+Since we have $x_i \in B$ then $\#(0,x_i) = \#(1,x_i) \forall i=1 \dots n$, then $\#(0,y) = \#(1,y)$
+$\Rightarrow y \in B$. Therefore $B^* \subseteq B$.
+\item Prove $B \in B^*$. \\
+For any alphabet $A$, each element in $A$ can itself represent a string in $A^*$, therefore $A \in A^*$
+for every $A$.\\
+So, we have $B \in B^*$.
+\end{enumerate}
+From (1) and (2), we have $B = B^*$.
+\end{proof}
+
+\end{homeworkProblem}
+
+\pagebreak
+\begin{homeworkProblem}
+Prove: For every positive integer $n$, 
+\[ \sum\limits_{i=1}^n \frac{1}{k^2} \leq 2 - \frac{1}{n} \]
+\begin{proof}
+We'll prove this problem by induction on n.\\
+\begin{enumerate}[(1)]
+\item Base case: $n = 1$, we need \[\frac{1}{1^1} \leq 2 - \frac{1}{1}\]and that is true.
+\item We assume that the statement is true for n, that is $\sum\limits_{i=1}^n \frac{1}{k^2} \leq 2 - \frac{1}{n}$, we will prove that the statement also holds for n+1, that is $\sum\limits_{i=1}^{n+1} \frac{1}{k^2} \leq 2 - \frac{1}{n+1}$.\\
+We have 
+\[ \sum\limits_{i=1}^{n+1} \frac{1}{k^2} = \sum\limits_{i=1}^{n} \frac{1}{k^2} + \frac{1}{(n+1)^2}
+\leq 2 - \frac{1}{n} + \frac{1}{(n+1)^2} \]
+\[ = 2 - \frac{n^2 + n + 1}{n(n+1)^2} = 2 - \frac{n(n+1) + 1}{n(n+1)^2} \]
+\[ \leq 2 - \frac{n(n+1)}{n(n+1)^2} = 2 - \frac{1}{n+1} \]
+So, 
+\[ \sum\limits_{i=1}^{n+1} \frac{1}{k^2} \leq 2 - \frac{1}{n+1} \]
+
+\end{enumerate}
+\end{proof}
+\end{homeworkProblem}
+
+\pagebreak
+
+\begin{homeworkProblem}
+Prove: For every language $A, A^{**} = A^*$.
+\begin{proof}
+\begin{enumerate}[(1)]
+\item Since each element in $A^*$ can itself represent a string in $A^{**}$, then $A^* \subseteq 
+A^{**}$.
+\item We'll prove that $A^{**} \subseteq A^*$. \\
+Each element $y \in A^{**}$ can be represented as $y = x_1x_2 \dots x_n$ where $n \in \mathbb{N}$
+and $x_i \in A^*$ for $i = 1 \dots n$.\\
+Because $x_i \in A^*$, $x_i$ is a concatenation from elements from $A \Rightarrow x_1x_2 \dots 
+x_n$ is also a concatenation from elements from $A \Rightarrow y$ is also a concatenation from 
+elements from $A \Rightarrow y \in A^*$. \\
+Therefore, $A^{**} \subseteq A^*$.
+\end{enumerate}
+From (1) and (2), we have $A^{**} = A^*$.
+\end{proof}
+\end{homeworkProblem}
+
+\pagebreak
+
+\begin{homeworkProblem}
+Prove: If $S = \{0,1\}$ and $T \subseteq \{0,1\}^*$, then 
+\[ S^* = T^* \Rightarrow S \subseteq T \]
+\begin{proof}
+Since $S = \{0,1\}$, $0 \in S^*$ and $1 \in S^*$. Followed by the fact that $S^* = T^* \Rightarrow 
+0 \in T^*$ and $1 \in T^*$. \\
+$T \subseteq \{0,1\}^* \Rightarrow T$ is a list of strings where each string is a concatenation
+of $0's$ and $1's$. Since $T^*$ contains $0$ and $1$, and $0$ and $1$ are single characters, then there
+is no way that elements in $T$ can produce a single $0$ and a single $1$ in $T^*$ without $T$ actually 
+contains $0$ and $1$ itself $\Rightarrow 0 \in T$ and $1 \in T$.\\
+So, all the elements in $S$ are in $T \Rightarrow S \subseteq T$.
+\end{proof}
+\end{homeworkProblem}
+
+\pagebreak
+
+\begin{homeworkProblem}
+Exhibit languages $S,T \subseteq \{0,1\}^*$ such that $S^* = T^*$ and $\{0,1\} \subseteq S \subset 
+T$.
+\begin{proof}
+We pick $S = \{0,1,01\}$ and $T = \{0,1,01,10\}$. Both $S$ and $T$ contain $0$ and $1 \Rightarrow 
+\{0,1\} \subseteq S$ and $\{0,1\} \subseteq T$.\\
+We can also see that $S \subset T$.\\
+We'll prove that $S^* = T^*$.  
+\begin{enumerate}[(1)]
+\item Prove $S^* \subseteq T^*$ \\
+For $y \in S^*$, $y$ is sure a concatenation of $0$ and $1$. And we have $0 \in T$ and $1 \in T$.\\
+Therefore $y \in T^* \Rightarrow S^* \subseteq T^*$.
+\item Similarly, we also have $T^* \subseteq S^*$.
+\end{enumerate}
+So, $S^* = T^*$.
+\end{proof}
+\end{homeworkProblem}
+\end{document}
