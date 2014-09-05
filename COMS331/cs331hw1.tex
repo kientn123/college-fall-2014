@@ -104,7 +104,7 @@ $A^* \neq A$
 \pagebreak
 
 \begin{homeworkProblem}
-Prove or disapprove: If $B = {x \in {0,1}^*|\#(0,x) = \#(1,x)}, then B* = B.$\\
+Prove or disapprove: If $B = \{x \in \{0,1\}^*|\#(0,x) = \#(1,x)\}$, then $B* = B.$\\
 Note: The notation $\#(0,x)$ is used to denote the number of $0's$ in $x$. Likewise, $\#(1,x)$ is used
 to denote the number of $1's$ in $x$.
 \begin{proof}
@@ -203,4 +203,45 @@ Therefore $y \in T^* \Rightarrow S^* \subseteq T^*$.
 So, $S^* = T^*$.
 \end{proof}
 \end{homeworkProblem}
+
+\pagebreak
+
+\begin{homeworkProblem}
+Define an (infinite) binary sequence $s \in \{0,1\}^\infty$ to be $prefix-repetitive$ if there are
+infinitely many strings $w \in \{0,1\}^*$ such that $ww \sqsubseteq s$.\\
+Prove: If the bits of a strings $s \in \{0,1\}^\infty$ are chosen by independent tosses of a fair coin,
+then
+\[ Prob[s\;is\;prefix-repetitive] = 0. \]
+Note: $x \sqsubseteq y$ means that $x$ is a prefix of $y$ where $x$ and $y$ are strings.
+\begin{proof}
+Because if $s$ is prefix-repetitive, there are infinitely many $w \in \{0,1\}^*$ such that $ww 
+\sqsubseteq s$, then we can have the length of $w$ can grow to $\infty$.\\
+Assume that after $n$ tosses, we have a string $w$, the probabilty such that after another $n$ tosses,
+we have the whole string as $ww$ is $(\frac{1}{2})^n$ (since it is a fair coin $\Rightarrow$ the
+probability to have head or tail is 1/2, and since we want the second n tosses to be exactly the same
+as the first n tosses $\Rightarrow$ each toss of the second n tosses must be the same as the correspond
+toss from the first n tosses $\Rightarrow$ for each one, we have only 1/2 chance it happens).\\
+Because $n$ can grow to $\infty$, $(\frac{1}{2})^n$ can grow to $0$.\\
+$\Rightarrow$ Prob[having $ww$ in the string] is 0
+$\Rightarrow$ Prob[s is prefix-repetitive] is 0.
+\end{proof}
+\end{homeworkProblem}
+
+\pagebreak
+
+\begin{homeworkProblem}
+Define $2$-$coloring$ of $\{0,1\}^*$ to be a function $\mathcal{X} : \{0,1\}^* \rightarrow \{red, blue
+\}$. (For examle, if $\mathcal{X}(1101)$ = red, we say that 1101 is red in coloring $\mathcal{X}$.)\\
+Prove: For every 2-coloring $\mathcal{X}$ and every (infinite) binary sequence $s \in \{0,1\}^\infty$,
+there is a sequence
+\[w_0,w_1,w_2,...\]
+of strings $w_n \in \{0,1\}^*$ such that
+\begin{enumerate}[(i)]
+\item $s = w_0w_1w_2\dots$, and
+\item $w_1, w_2, w_3, \dots$ are all the same color. (The string $w_0$ may not be this color.)
+\end{enumerate}
+\end{homeworkProblem}
+\begin{proof}
+I don't know how to solve this problem
+\end{proof}
 \end{document}
