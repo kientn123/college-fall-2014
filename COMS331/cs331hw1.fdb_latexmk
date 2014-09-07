@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1409921033 "cs331hw1.tex" "cs331hw1.pdf" "cs331hw1" 1409921034
+["pdflatex"] 1409921421 "cs331hw1.tex" "cs331hw1.pdf" "cs331hw1" 1409921422
   "/usr/local/texlive/2014/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2014/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2014/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -145,8 +145,8 @@
   "/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1401025944 1445653 26a0aacf3d70032b1ec192e8c7792117 ""
   "/usr/local/texlive/2014/texmf-var/web2c/pdftex/pdflatex.fmt" 1401025990 3832012 904d82bdcc8abf2b1cd296990b82553b ""
   "/usr/local/texlive/2014/texmf.cnf" 1401025936 577 a59edbde8d3a8c549d0eeaab1739e2ff ""
-  "cs331hw1.aux" 1409921034 538 ec9155be2ef17aca55b13c481605295f ""
-  "cs331hw1.tex" 1409921033 8906 6aef6451f16441abf1df1d9ea2cc4082 ""
+  "cs331hw1.aux" 1409921422 538 ec9155be2ef17aca55b13c481605295f ""
+  "cs331hw1.tex" 1409921421 8910 be85ba24ad860796e36f81a7c34cd3b0 ""
   (generated)
   "cs331hw1.log"
   "cs331hw1.aux"
